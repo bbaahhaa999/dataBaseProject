@@ -1,0 +1,9 @@
+my:
+  greeting: "Hello JAWWAL"
+  name: "${my.greeting} My name is Bahaa"
+  list: "one,two,three"
+
+db:
+  connection: "testConnection"
+  host: "168.1.1.1"
+  port: 2400
