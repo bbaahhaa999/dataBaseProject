@@ -1,0 +1,36 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en" >
+<head th:replace="/layouts/layout :: head">
+</head>
+<body>
+
+<div th:replace="/layouts/layout :: nav"></div>
+<div class="container my-5 py-5">
+    <h2>List To Do</h2>
+    <hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Target Date</th>
+            <th>User Name</th>
+            <th>Is Done?</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todo:${todos}">
+        <td th:text="${todo.id}"></td>
+        <td th:text="${todo.description}"></td>
+        <td th:text="${todo.targetDate}"></td>
+        <td th:text="${todo.username}"></td>
+        <td th:text="${todo.done}"></td>
+    </tr>
+    </tbody>
+</table>
+    <a th:href="@{/add-todo}"class="btn btn-primary my-3"><i class="bi bi-plus-lg me-3"></i>Add Todo</a>
+</div>
+</body>
+<footer th:replace="/layouts/layout :: footer"></footer>
+</html>
