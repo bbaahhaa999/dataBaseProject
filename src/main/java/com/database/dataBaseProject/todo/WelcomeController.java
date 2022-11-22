@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 @SessionAttributes("name")
 public class WelcomeController {
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @RequestMapping(value = "/welcome",method = RequestMethod.GET)
     public String goToWelcomePage(Model model, HttpSession session){
 
         try {

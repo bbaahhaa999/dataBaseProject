@@ -1,0 +1,32 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en" >
+<head th:replace="/layouts/layout :: head">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<div th:replace="/layouts/layout :: nav"></div>
+<div class="container my-5 py-5 text-center">
+    <h2 th:text="${title}"></h2>
+    <hr>
+    <div>
+        <form th:action="@{/categories/save}" th:object="${category}" method="POST"
+        style="max-width=600px; margin :0 auto;">
+            <div class="m-3">
+                <div class="form-group row">
+                <label for="catename" class="col-form form-label col-sm-4">Category Name: </label>
+                    <div class="col-sm-8">
+                        <input type="text" th:field="*{name}" class="form-control" id="catename" required>
+                    </div>
+                </div>
+            <div class="text-center p-3">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+<footer th:replace="/layouts/layout :: footer"></footer>
+</html>

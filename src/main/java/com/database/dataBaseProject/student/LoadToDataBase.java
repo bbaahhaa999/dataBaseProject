@@ -2,6 +2,8 @@ package com.database.dataBaseProject.student;
 
 import com.database.dataBaseProject.Employee;
 import com.database.dataBaseProject.EmployeeRepository;
+import com.database.dataBaseProject.oneTomanyRelation.categories.Category;
+import com.database.dataBaseProject.oneTomanyRelation.categories.CategoryRepository;
 import com.database.dataBaseProject.todo.Todo;
 import com.database.dataBaseProject.todo.TodoRepository;
 import org.slf4j.Logger;
@@ -17,7 +19,7 @@ public class LoadToDataBase {
     Logger logger = LoggerFactory.getLogger(LoadToDataBase.class);
 
     @Bean
-    CommandLineRunner intDataBase(StudentRepository studentRepository, EmployeeRepository employeeRepository, TodoRepository todoRepository) {
+    CommandLineRunner intDataBase(StudentRepository studentRepository, EmployeeRepository employeeRepository, TodoRepository todoRepository, CategoryRepository categoryRepository) {
         return args -> {
             logger.info("Preloading "+ studentRepository.save(new Student("Baha","bhajahmad@gmail.com",Gender.MALE)));
             logger.info("Preloading "+ studentRepository.save(new Student("H","bh@gmail.com",Gender.FEMALE)));
@@ -29,6 +31,10 @@ public class LoadToDataBase {
             logger.info("Preloading "+ todoRepository.save(new Todo(5,"Haj","JS", LocalDate.now().plusYears(2),false)));
             logger.info("Preloading "+ todoRepository.save(new Todo(6,"Ahmad","CSS", LocalDate.now().plusYears(3),false)));
             logger.info("Preloading "+ todoRepository.save(new Todo(7,"Ase","HTML", LocalDate.now().plusYears(4),false)));
+
+            logger.info("Preloading "+ categoryRepository.save(new Category(1,"Arts")));
+            logger.info("Preloading "+ categoryRepository.save(new Category(2,"Books")));
+            logger.info("Preloading "+ categoryRepository.save(new Category(3,"Home and Garden")));
         };
     }
 }
