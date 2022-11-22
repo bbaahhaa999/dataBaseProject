@@ -32,7 +32,7 @@ public class TodoController {
     }
 
     @RequestMapping(value = "add-todo", method = RequestMethod.GET)
-    public String showNewTodoPage(Model model , Todo todo){
+    public String showNewTodoPage(Model model ,@Valid Todo todo){
         model.addAttribute("todo",todo);
         return "todo";
     }
@@ -46,4 +46,19 @@ public class TodoController {
             return "listTodos";
         }
     }
+
+//    @RequestMapping("delete-todo")
+//    public String deleteTodo(@RequestParam int id){
+//        // Delete
+//        todoService.deleteById(id);
+//        return "redirect:list-todos";
+//
+//    }
+//    @RequestMapping("update-todo")
+//    public String UpdateTodo(@RequestParam int id){
+//        // Delete
+//        todoService.deleteById(id);
+//        return "todo";
+//
+//    }
 }

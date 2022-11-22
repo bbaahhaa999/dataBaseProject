@@ -1,15 +1,14 @@
 package com.database.dataBaseProject.todo;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
 public class Todo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "uesrname",length = 50)
     private String username;
     private String description;
     private LocalDate targetDate;

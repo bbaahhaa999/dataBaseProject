@@ -16,6 +16,7 @@
             <th>Target Date</th>
             <th>User Name</th>
             <th>Is Done?</th>
+            <th>Actions</th>
 
         </tr>
     </thead>
@@ -26,6 +27,15 @@
         <td th:text="${todo.targetDate}"></td>
         <td th:text="${todo.username}"></td>
         <td th:text="${todo.done}"></td>
+        <td>
+            <button type="button" class="btn btn-danger w-25" data-bs-toggle="modal" data-bs-target="#exampleModal">
+               <a th:href="@{/delete-todo/__${todo.id}__}"><i class="bi bi-trash"></i></a>
+            </button>
+            <button type="button" class="btn btn-primary w-25" >
+<!--                th:href="@{/instructors/edit/__${instructor.id}__}"-->
+                <a><i class="bi bi-pencil-square me-2 text-white"></i></a>
+            </button>
+        </td>
     </tr>
     </tbody>
 </table>
