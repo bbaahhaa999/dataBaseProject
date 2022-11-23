@@ -8,7 +8,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "brand")
-public class Brand {
+public class
+Brand {
     @Id
     @SequenceGenerator(
             name = "brand_seq",
@@ -23,7 +24,30 @@ public class Brand {
     @Column(length = 50,unique = true,nullable = false)
     private String name;
 
-    @OneToMany
-
+    @OneToMany(mappedBy = "brand")
     private List<Category> categories = new ArrayList<>();
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 }

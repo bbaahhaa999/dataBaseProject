@@ -1,5 +1,7 @@
 package com.database.dataBaseProject.oneTomanyRelation.categories;
 
+import com.database.dataBaseProject.oneTomanyRelation.brand.Brand;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -19,6 +21,10 @@ public class Category {
     private Integer id;
     @Column(length = 50,nullable = false,unique = true)
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name="brand_id")
+    private Brand brand;
 
     public Category() {
     }
@@ -46,6 +52,14 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
     @Override
