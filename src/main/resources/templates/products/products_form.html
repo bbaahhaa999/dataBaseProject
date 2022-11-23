@@ -8,10 +8,14 @@
 <div th:replace="/layouts/layout :: nav"></div>
 <div class="container my-5 py-5 text-center">
     <h2 th:text="${title}"></h2>
+<!--    <h2 th:if="${product.id == null}">Create New Product</h2>-->
+<!--    <h2 th:unless="${product.id == null}">Update Product</h2>-->
+
     <hr>
     <div>
         <form th:action="@{/products/save}" th:object="${product}" method="POST"
               style="max-width=600px; margin :0 auto;">
+            <input type="hidden" th:field="*{id}" th:value="${product.id}">
             <div class="mb-5">
                 <div class="form-group row">
                     <label for="catename" class="col-form form-label col-sm-4">Product Name: </label>

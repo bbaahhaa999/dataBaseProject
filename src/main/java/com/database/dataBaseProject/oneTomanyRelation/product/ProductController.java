@@ -47,11 +47,21 @@ public class ProductController {
     }
 
     @GetMapping("products/edit/{id}")
-    public String showEditProductForm(@PathVariable Integer id, Model model){
+    public String showEditProductForm(@PathVariable ("id") Integer id, Model model){
         Product product = productRepository.findById(id).get();
-        model.addAttribute("title","Edit Product")
-        return "product/product_form";
+        model.addAttribute("title","Edit Product");
+        model.addAttribute("product",product);
+
+        List<Category> listCategory = categoryRepository.findAll();
+        model.addAttribute("listCategory",listCategory);
+        return "products/products_form";
     }
 
+    @GetMapping("products/delete/{id}")
+    public String showDeleteProductForm(@PathVariable ("id") Integer id, Model model){
+        productRepository.deleteById(id);
+        return "redirect:/products";
+
+    }
 
 }
